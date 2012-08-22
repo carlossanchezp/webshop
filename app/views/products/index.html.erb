@@ -1,0 +1,21 @@
+<h1><div class="shadow">Listing products</div></h1>
+
+
+<table align=center>
+  <tr class="bluish">
+    <th><div class="shadow">Brand</div></th>
+    <th><div class="shadow">Category</div></th>
+    <th><div class="shadow">Name</div></th>
+    <th><div class="shadow">Description</div></th>
+    <th><div class="shadow">Price</div></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<%= render @products %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_product_path %>
