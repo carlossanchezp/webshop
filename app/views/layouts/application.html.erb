@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Webshop</title>
+  <title>WebShop</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,8 +9,27 @@
 </head>
 
 <body>
-    <%= render 'layouts/header' %>
+
+    <%  if logged_in? %>
+
+        <p><%=t('layouts.application.eres') %><%= session[:user_id] %></p>
+        <p><%= current_user.email %></p>
+        <p><%= current_user.first_name %></p>
+
+    <% else %>
+        haz login en <% link_to 'este link', new_session_path %>
+    <% end %>
+
+    <p><%= l Time.now, :format => :short %></p>
+    <%=t('layouts.application.home') %>
+
+
+
+       <%= render 'layouts/header' %>
     <div class="container">
+      <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>

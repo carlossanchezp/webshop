@@ -11,10 +11,16 @@
 </p>
 
 <p>
-  <b>Rating integer:</b>
-  <%= @review.rating_integer %>
+  <b>Rating:</b>
+  <%= @review.rating %>
 </p>
 
+<p>
+  <b>User:</b>
+  <%= @review.username %>
+</p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<%= edit_review_link_user @review.product, @review %> |
+<%= link_to 'Back', product_path(@review.product) %>
+
+

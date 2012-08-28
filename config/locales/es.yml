@@ -1,0 +1,17 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  hello: "Hola desde España"
+  layouts:
+    application:
+      title: "Aplicación Web Shop"
+      home: "Inicio"
+      product: "Listados de Productos"
+      youare: "Eres el usuario....."
+      reviews: "Review edición"
+      users: "Listado de Usuarios"
+      firts_name: "Nombre"
+      last_name: "Last Name"
+
+
