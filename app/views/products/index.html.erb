@@ -1,22 +1,21 @@
-<h1><div class="shadow"><%=t('layouts.application.productos') %></div></h1>
+<h1>Listing products</h1>
 
-<h1><%= t('layouts.application.title') %></h1>
-
-<table align=center>
-  <tr class="bluish">
-    <th><div class="shadow">Brand</div></th>
-    <th><div class="shadow">Category</div></th>
-    <th><div class="shadow">Name</div></th>
-    <th><div class="shadow">Description</div></th>
-    <th><div class="shadow">Price</div></th>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Brand</th>
+    <th>Category</th>
+    <th>Description</th>
+    <th>Price</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<%= render @products %>
+
+  <%= render @products %>
 </table>
 
 <br />
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path if is_admin? %>

@@ -12,17 +12,16 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
     <%= f.label :brand %><br />
     <%= f.text_field :brand %>
   </div>
-   <div class="field">
-    <%= f.label :category %><br />
-    <%= select_tag(:category , options_for_select([['opt1',1],['opt2',2],['opt3',3]],1)) %>
-  </div>
-
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
@@ -30,9 +29,8 @@
   </div>
   <div class="field">
     <%= f.label :price %><br />
-    <%= f.text_field :price %>
+    <%= f.number_field :price %>
   </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>

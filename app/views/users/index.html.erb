@@ -1,34 +1,20 @@
-<h1><%=t('layouts.application.users') %></h1>
+<h1>Listing users</h1>
 
 <table>
   <tr>
-    <th><%=t('layouts.application.firts_name')%></th>
-    <th><%=t('layouts.application.last_name') %></th>
+    <th>Firstname</th>
+    <th>Lastname</th>
     <th>Email</th>
-    <th>ID</th>
-    <th>Review</th>
-    <th>Rating</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
+    <td><%= user.firstname %></td>
+    <td><%= user.lastname %></td>
     <td><%= user.email %></td>
-    <td><%= user.id %></td>
-
-
-
-    <% user.reviews.each do |review| %>
-
-
-        <td><%= review.description %></td>
-        <td><%= review.rating_integer %></td>
-
-
-    <% end %>
-
-
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

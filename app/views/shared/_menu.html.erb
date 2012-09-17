@@ -1,0 +1,13 @@
+<% if logged_in? %>
+
+    <%= link_to image_tag("rails.png", alt: "Rails") %>
+    <nav>
+      <ul>
+        <li><%= link_to "Products", products_path %></li>
+        <% if is_admin? %>
+            <li> <%= link_to "Users", users_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+
+<% end %>

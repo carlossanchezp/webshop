@@ -1,15 +1,5 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-# Cuidado que yml debe tener un formato de espacios y no tabuladores
+
 en:
   hello: "Hello world"
-  layouts:
-    application:
-      title: "Application Web Shop"
-      home: "Init"
-      youare: "You are the user....."
-      product: "Listados de Productos"
-      reviews: "Review edition"
-      users: "Listing User"
-      firts_name: "First Name"
-      last_name: "Last Name"

@@ -1,4 +1,10 @@
+<h1>Product in edition</h1>
 <p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
 
 <p>
   <b>Brand:</b>
@@ -11,11 +17,6 @@
 </p>
 
 <p>
-  <b>Name:</b>
-  <%= @product.name %>
-</p>
-
-<p>
   <b>Description:</b>
   <%= @product.description %>
 </p>
@@ -24,7 +25,24 @@
   <b>Price:</b>
   <%= @product.price %>
 </p>
-
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Edit', edit_product_path(@product) if is_admin? %> |
 <%= link_to 'Back', products_path %>
+
+<h2>Reviews Product</h2>
+
+<table>
+  <tr>
+    <th>Summary</th>
+    <th>Description</th>
+    <th>Rating</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <%= render partial: "reviews/review", collection: @reviews %>
+
+</table>
+
+<%= link_to 'Add review', new_product_review_path(@product) %>

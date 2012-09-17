@@ -1,18 +1,27 @@
+<h1>Users</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>First name:</b>
-  <%= @user.first_name %>
+  <b>Firstname:</b>
+  <%= @user.firstname %>
 </p>
 
 <p>
-  <b>Last name:</b>
-  <%= @user.last_name %>
+  <b>Lastname:</b>
+  <%= @user.lastname %>
 </p>
 
 <p>
   <b>Email:</b>
   <%= @user.email %>
+</p>
+<p>
+  <b>Level User:</b>
+  <% if @user.is_admin == true  %>
+      <b>Admin User</b>
+  <% else %>
+      <b> User</b>
+  <% end %>
 </p>
 
 

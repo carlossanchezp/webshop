@@ -12,15 +12,13 @@
 
 <p>
   <b>Rating:</b>
-  <%= @review.rating %>
+  <%= @review.rating  %>
 </p>
 
 <p>
   <b>User:</b>
-  <%= @review.username %>
+  <%= @review.username  %>
 </p>
 
 <%= edit_review_link_user @review.product, @review %> |
 <%= link_to 'Back', product_path(@review.product) %>
-
-

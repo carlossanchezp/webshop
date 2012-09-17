@@ -1,26 +1,13 @@
-<h1>Login user WebShop</h1>
-
-
-<div class="login">
-  <%= form_tag sessions_path do %>
-      <table>
-        <tr>
-          <td><%= label_tag(:email) %></td>
-          <td><%= text_field_tag(:email) %></td>
-        </tr>
-        <tr>
-          <td><%= label_tag(:password) %></td>
-          <td><%= password_field_tag(:password) %></td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-          <td><%= submit_tag("Log In") %></td>
-        </tr>
-      </table>
-  <% end %>
-</div>
-
-
-
-
-
+<h1>Welcome to my WebShop 2.0</h1>
+<%= notice %>
+<%= alert %>
+<%= form_tag sessions_path do %>
+  <%= label_tag ":email", "Email" %>
+  <%= text_field_tag :email, params[:email] %><br />
+  <%= label_tag :password, "Password" %>
+  <%= password_field_tag :password %><br />
+  <%= submit_tag "Login" %>
+<% end %>
+<p>
+  <%= link_to "Register User", new_user_path %>
+</p>

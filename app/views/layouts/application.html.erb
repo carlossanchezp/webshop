@@ -1,37 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WebShop</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <title>CSP Webshop NEW</title>
+  <%= stylesheet_link_tag "normalize", "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <%= render 'layouts/shim' %> 
 </head>
-
 <body>
 
-    <%  if logged_in? %>
+    <%= render "shared/menu" %>
+    <%= welcome_user %>
 
-        <p><%=t('layouts.application.eres') %><%= session[:user_id] %></p>
-        <p><%= current_user.email %></p>
-        <p><%= current_user.first_name %></p>
+    <section id="content">
+        <%= yield %>
+    </section>
 
-    <% else %>
-        haz login en <% link_to 'este link', new_session_path %>
-    <% end %>
-
-    <p><%= l Time.now, :format => :short %></p>
-    <%=t('layouts.application.home') %>
-
-
-
-       <%= render 'layouts/header' %>
-    <div class="container">
-      <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-    </div>
-  </body>
+</body>
 </html>

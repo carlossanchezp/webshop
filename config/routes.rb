@@ -1,56 +1,30 @@
 Webshop::Application.routes.draw do
-  #get "menu/login"
 
-  #get "sessions/destroy"
-  #get "sessions/create"
+#---------------------------------------------------------------
+# Verb         Route            Action              Helper
+#---------------------------------------------------------------
+# get          login            session#new         login
+# get          reviews/:id      reviews#index
+# delete
+# put
+# post
+#---------------------------------------------------------------
+  get     "login"       => "sessions#new",         :as => "login"
+  get     "logout"      => "sessions#destroy",     :as => "logout"
+  get     "signup"      => "users#new",            :as => "new_user"
+  get     "reviews"     => "reviews#index"
+  get     "reviews/:id" => "reviews#show",         :as  => "review"
+  delete  "reviews/:id" => "reviews#destroy",      :as  => "review"
 
 
-
-  # Verbo -- RUTA -- ACCION -- HELPER
-  get "login" => "sessions#new", :as => "login"
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "signup" => "users#new", :as => "new_user"
-  get "reviews" => "reviews#index"
-  get "reviews/:id" => "reviews#show", :as => "review"
-  delete "reviews/:id" => "reviews#destroy", :as => "review"
-
-
-  #get "signup" => "users#new", :as => "new_user"
-  #get "login" => "sessions#new", :as => "new_session"
-  #get "logout"  => "sessions#destroy", :as => "logout"
-
-  #root :to => "products#index"
-  root :to => "sessions#new"
-  resources :users, :except => [:new]
-
-  # Definirlo en el controlador
-  resources :products  do
-    member do
-      put 'publish'
-      put 'unpublish'
-    end
-    collection do
-      put 'publish_all'
-      put 'unpublish_all'
-    end
-    collection    do
-      put 'delete_all'
-    end
-    resources :reviews,  :only =>  [:index, :new, :create]
+  resources :products do
+    resources :reviews, :except => [:show, :destroy]
   end
-  #resources :sessions
 
-  resources :reviews, :only => [:index, :show, :destroy, :edit, :update]
   resources :sessions, :only => [:new, :create]
   resources :users, :except => [:new]
 
-
-  #resources  :reviews, :only => [:index]
-
-  #resources :reviews
-  #ver primero si rails nos da una ruta valida por si no es necesario helpers como es el caso
-  #get "reviews"  => "reviews#index"
-
+  root :to => "products#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

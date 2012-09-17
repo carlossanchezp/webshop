@@ -14,7 +14,5 @@
 /log/*.log
 /tmp
 
-
-#---------------------
-/config/dayabase.yml
-/log
+#RubyMine generated files.
+.idea/

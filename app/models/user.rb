@@ -1,25 +1,25 @@
+class EmailValidator < ActiveModel::EachValidator
+	def validate_each(record, attribute, value)
+		unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+      record.errors[attribute] << (options[:message] || "is not an email")
+    end
+	end
+end
+
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation
+  attr_accessible :email, :firstname, :lastname, :password, :password_confirmation
+	
   has_many :reviews
+
   has_secure_password
 
-  EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
-
-  validates :first_name, :presence => true, :length => { :maximum => 25 }
-  validates :last_name, :presence => true, :length => { :maximum => 50 }
-  validates :email, :presence => true, :length => { :maximum => 100 },
-            :format => EMAIL_REGEX, :confirmation => true
-
-
-  validates :password, :confirmation => true
-  attr_accessor :password_confirmation
-  attr_reader   :password
-  validate     :password_must_be_present
-
-  private
-
-  def password_must_be_present
-    errors.add(:password, "Missing password") unless hashed_password.present?
-  end
-
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :email, presence: true,
+                    uniqueness: true,
+                    email: true
+  validates :password, presence: true
+  validates :password_confirmation, presence: true
 end
+
+

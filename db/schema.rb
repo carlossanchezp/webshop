@@ -11,37 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120824152059) do
+ActiveRecord::Schema.define(:version => 20120826202526) do
 
   create_table "products", :force => true do |t|
+    t.string   "name"
     t.string   "brand"
     t.string   "category"
-    t.string   "name"
     t.text     "description"
     t.float    "price"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "review_count"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "reviews_count", :default => 0
   end
 
   create_table "reviews", :force => true do |t|
     t.string   "summary"
     t.text     "description"
-    t.string   "rating_integer"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "rating"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "product_id"
     t.integer  "user_id"
-    t.integer  "review_count"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "firstname"
+    t.string   "lastname"
     t.string   "email"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
+    t.boolean  "is_admin",        :default => false
   end
 
 end
