@@ -1,7 +1,7 @@
 Curso-Ruby-On-Rails
 ===================
 
-Curso RubyOnRails 2012 oficias de aspgems
+Curso RubyOnRails 2012 oficinas de ASPGems
 
 Las Rutes:
               login GET    /login(.:format)                                 sessions#new
